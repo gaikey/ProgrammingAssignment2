@@ -8,6 +8,7 @@
 ## get - retrieves the given matrix
 ## setinverse - calculates the inverse of the given matrix into "m"
 ## getinverse - retrieves the inverse of the given matrix, m
+## It also "holds" the inverse matrix, m which is null if it hasn't previously been computed
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -27,11 +28,10 @@ makeCacheMatrix <- function(x = matrix()) {
 		getinverse = getinverse)
 }
 
-## The cacheSolve function accepts the "function" list from makeCacheMatrix
-## This function uses the makeCacheMatrix functions to determine if the inverse
-## of the matrix has already been computed (is not null).
-## If yes, it returns the cached inverse matrix from the makeCacheMatrix function
-## Otherwise, it calcluates the inverse and "sets" this value using setinverse()
+## cacheSolve accepts the "function" list from variable created from makeCacheMatrix
+## This function determines if the inverse of the matrix has already been computed (is not null).
+## If yes, it returns the cached inverse matrix from variable create from the makeCacheMatrix function
+## Otherwise, it calcluates the inverse and "sets" this value using setinverse() in the passed argument
 ## and returns the inverse matrix
 
 cacheSolve <- function(x, ...) {
